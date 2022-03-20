@@ -125,13 +125,13 @@ func (u *Upgrader) selectSubprotocol(r *http.Request, responseHeader http.Header
 func (u *Upgrader) Upgrade(w http.ResponseWriter, r *http.Request, responseHeader http.Header) (*Conn, error) {
 	const badHandshake = "websocket: the client is not using the websocket protocol: "
 
-	if !tokenListContainsValue(r.Header, "Connection", "upgrade") {
+	/*if !tokenListContainsValue(r.Header, "Connection", "upgrade") {
 		return u.returnError(w, r, http.StatusBadRequest, badHandshake+"'upgrade' token not found in 'Connection' header")
 	}
 
 	if !tokenListContainsValue(r.Header, "Upgrade", "websocket") {
 		return u.returnError(w, r, http.StatusBadRequest, badHandshake+"'websocket' token not found in 'Upgrade' header")
-	}
+	}*/
 
 	if r.Method != http.MethodGet {
 		return u.returnError(w, r, http.StatusMethodNotAllowed, badHandshake+"request method is not GET")
@@ -323,8 +323,9 @@ func Subprotocols(r *http.Request) []string {
 // IsWebSocketUpgrade returns true if the client requested upgrade to the
 // WebSocket protocol.
 func IsWebSocketUpgrade(r *http.Request) bool {
-	return tokenListContainsValue(r.Header, "Connection", "upgrade") &&
-		tokenListContainsValue(r.Header, "Upgrade", "websocket")
+	//return tokenListContainsValue(r.Header, "Connection", "upgrade") &&
+	//	tokenListContainsValue(r.Header, "Upgrade", "websocket")
+	return true
 }
 
 // bufioReaderSize size returns the size of a bufio.Reader.
