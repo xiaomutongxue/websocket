@@ -207,7 +207,7 @@ func (d *Dialer) DialContext(ctx context.Context, urlStr string, requestHeader h
 	// RFC examples. Although the capitalization shouldn't matter, there are
 	// servers that depend on it. The Header.Set method is not used because the
 	// method canonicalizes the header names.
-	req.Header["Upgrade"] = []string{"websocket"}
+	//req.Header["Upgrade"] = []string{"websocket"}
 	req.Header["Connection"] = []string{"Upgrade"}
 	req.Header["Sec-WebSocket-Key"] = []string{challengeKey}
 	req.Header["Sec-WebSocket-Version"] = []string{"13"}
