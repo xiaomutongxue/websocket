@@ -1,3 +1,3 @@
-module github.com/yuzuki999/websocket
+module github.com/yuzuki616/websocket
 
 go 1.12
